@@ -21,11 +21,14 @@ const theme = {
     mobile: {
       s: '1.3rem',
       m: '1.6rem',
+      l: '1.8rem',
       xl: '2rem',
+      xxl: '3.5rem',
     },
 
     tablet: {
       xl: '3rem',
+      l: '2.8rem',
       m: '1.8rem',
       s: '1.3rem',
     },
@@ -70,11 +73,11 @@ const theme = {
   //   },
   // },
 
-  // fontWeight: {
-  //   light: '300',
-  //   regular: '400',
-  //   bold: '700',
-  // },
+  fontWeight: {
+    light: '300',
+    regular: '400',
+    bold: '700',
+  },
 
   zIndex: {
     zIndex100: 100,
@@ -82,9 +85,10 @@ const theme = {
   },
 
   mq: {
+    mobile_1: '@media(min-width: 500px)',
     tablet: '@media(min-width: 768px)',
-    preDesktop: '@media(min-width: 900px)',
-    desktop: '@media(min-width: 1024px)',
+    tablet_1: '@media(min-width: 900px)',
+    desktop: '@media(min-width: 1100px)',
     huge: '@media(min-width: 1440px)',
   },
 };
