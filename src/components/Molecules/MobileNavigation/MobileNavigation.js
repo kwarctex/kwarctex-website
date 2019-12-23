@@ -10,6 +10,7 @@ const StyledNavigation = styled.nav`
   left: 0;
   width: 90%;
   height: 100vh;
+  z-index: ${({ theme }) => theme.zIndex.zIndex90};
   background-color: ${({ theme }) => theme.color.white};
   transform: translateX(${({ menuIsOpen }) => (menuIsOpen ? '0' : '-100%')});
   transition: transform 0.3s ease-in;

@@ -12,13 +12,15 @@ const StyledMenuItem = styled.li`
 `;
 
 const StyledMenuItemLink = styled(AniLink)`
-    font-size: 1.6rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: ${({ theme }) => theme.color.black};
-    /* ${({ theme }) => theme.mq.tablet} {
-        // add styles
-    } */
+  font-size: ${({ theme }) => theme.fontSize.mobile.m};
+  font-weight: 700;
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.black};
+  transition: color 0.15s ease-in;
+
+  &:hover {
+    color: ${({ theme }) => theme.color.accentColor};
+  }
 `;
 
 const MenuItem = ({ children, ...props }) => (

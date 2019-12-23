@@ -12,6 +12,10 @@ const StyledHeader = styled.header`
   width: 100%;
   height: 7rem;
   padding: 0 3rem;
+
+  ${({ theme }) => theme.mq.desktop} {
+    padding: 0 15rem;
+  }
 `;
 
 const Header = () => {

@@ -1,6 +1,6 @@
 const menuItemsArray = [
   {
-    title: 'Strona główna',
+    title: 'Strona gł.',
     linkTo: '/',
   },
   {

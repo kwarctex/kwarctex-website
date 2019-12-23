@@ -19,6 +19,7 @@ const theme = {
 
   fontSize: {
     mobile: {
+      s: '1.3rem',
       m: '1.6rem',
       xl: '2rem',
     },
@@ -26,11 +27,13 @@ const theme = {
     tablet: {
       xl: '3rem',
       m: '1.8rem',
+      s: '1.3rem',
     },
 
     desktop: {
       xl: '3.5rem',
       m: '1.8rem',
+      s: '1.3rem',
     },
   },
 
@@ -75,6 +78,7 @@ const theme = {
 
   zIndex: {
     zIndex100: 100,
+    zIndex90: 90,
   },
 
   mq: {
