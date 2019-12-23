@@ -1,7 +1,9 @@
 const theme = {
   color: {
     black: 'hsla(0, 0%, 0%, 1)',
+    lightBlack: 'hsla(0, 0%, 0%, .7)',
     white: 'hsla(360, 100%, 100%, 1)',
+    accentColor: '	hsla(186, 100%, 27%, 1)',
     //   primary: 'hsla(289, 27%, 24%, 1)',
     //   primaryLight: 'hsla(289, 9%, 42%, .5)',
     //   black: 'hsla(0, 0%, 20%, 1)',
@@ -13,6 +15,23 @@ const theme = {
     //   darkGrey: 'hsla(0,0%,52%, 1)',
     //   lightBlue: 'hsla(209, 100%, 91%)',
     //   darkBlue: 'hsla(209, 100%, 30%)',
+  },
+
+  fontSize: {
+    mobile: {
+      m: '1.6rem',
+      xl: '2rem',
+    },
+
+    tablet: {
+      xl: '3rem',
+      m: '1.8rem',
+    },
+
+    desktop: {
+      xl: '3.5rem',
+      m: '1.8rem',
+    },
   },
 
   // fontSize: {
