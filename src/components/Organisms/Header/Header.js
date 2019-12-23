@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Logo from 'components/Molecules/Logo/Logo';
 import Hamburger from 'components/Atoms/Hamburger/Hamburger';
 import MobileNavigatiion from 'components/Molecules/MobileNavigation/MobileNavigation';
-// import DesktopMenu from 'components/DesktopMenu/DesktopMenu';
+import DesktopNavigatiion from 'components/Molecules/DesktopNavigation/DesktopNavigation';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -29,28 +28,16 @@ const Header = () => {
   };
 
   return (
-    <StyledHeader
-      // showMenu={showMenu}
-      //   menuStyles={menuStyles}
-      menuIsOpen={menuIsOpen}
-    >
+    <StyledHeader menuIsOpen={menuIsOpen}>
       <Hamburger onClick={hamburgerHandler} menuIsOpen={menuIsOpen} />
       <Logo />
       <MobileNavigatiion
         menuIsOpen={menuIsOpen}
         menuHandler={hamburgerHandler}
       />
-      {/* <DesktopMenu menuStyles={menuStyles} pathname={pathname} /> */}
+      <DesktopNavigatiion />
     </StyledHeader>
   );
 };
-
-// Header.propTypes = {
-//   pathname: PropTypes.string,
-// };
-
-// Header.defaultProps = {
-//   pathname: '/',
-// };
 
 export default Header;
