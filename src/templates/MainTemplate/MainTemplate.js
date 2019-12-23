@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'assets/styles/GlobalStyle';
 import SEO from 'components/Atoms/SEO/SEO';
 import theme from 'assets/styles/theme';
-// import Header from 'components/Header/Header';
+import Header from 'components/Organisms/Header/Header';
 // import ContactTemplate from 'templates/ContactTemplate/ContactTemplate';
 
 const MainTemplate = ({ children }) => {
@@ -14,7 +14,7 @@ const MainTemplate = ({ children }) => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <>
-          {/* <Header pathname={pathname} /> */}
+          <Header />
           {children}
           {/* <ContactTemplate /> */}
         </>
