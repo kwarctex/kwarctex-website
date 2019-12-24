@@ -27,7 +27,11 @@ SectionWrapper.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  background: PropTypes.string.isRequired,
+  background: PropTypes.string,
+};
+
+SectionWrapper.defaultProps = {
+  background: 'white',
 };
 
 export default SectionWrapper;

@@ -14,7 +14,11 @@ Section.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  background: PropTypes.string.isRequired,
+  background: PropTypes.string,
+};
+
+Section.defaultProps = {
+  background: 'white',
 };
 
 export default Section;
