@@ -3,9 +3,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledSectionWrapper = styled.section`
+  max-width: ${({ styledSection }) =>
+    styledSection === 'styledSection' ? '100%' : '110rem'};
   padding: 3rem;
-  background-color: ${({ theme, background }) =>
-    background === 'grey' ? theme.color.lightGrey : theme.color.white};
+  margin: auto;
+  background-color: ${({ theme, styledSection }) =>
+    styledSection === 'styledSection'
+      ? theme.color.lightGrey
+      : theme.color.white};
 
   ${({ theme }) => theme.mq.tablet} {
     padding: 3rem 6rem;
@@ -16,8 +21,8 @@ const StyledSectionWrapper = styled.section`
   }
 `;
 
-const SectionWrapper = ({ children, background }) => (
-  <StyledSectionWrapper background={background}>
+const SectionWrapper = ({ children, styledSection }) => (
+  <StyledSectionWrapper styledSection={styledSection}>
     {children}
   </StyledSectionWrapper>
 );
@@ -27,11 +32,11 @@ SectionWrapper.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  background: PropTypes.string,
+  styledSection: PropTypes.string,
 };
 
 SectionWrapper.defaultProps = {
-  background: 'white',
+  styledSection: 'default',
 };
 
 export default SectionWrapper;

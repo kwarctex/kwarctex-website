@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import SectionWrapper from 'components/Atoms/SectionWrapper/SectionWrapper';
 import SectionContent from 'components/Atoms/SectionContent/SectionContent';
 
-const Section = ({ children, background }) => (
-  <SectionWrapper background={background}>
+const Section = ({ children, styledSection }) => (
+  <SectionWrapper styledSection={styledSection}>
     <SectionContent>{children}</SectionContent>
   </SectionWrapper>
 );
@@ -14,11 +14,11 @@ Section.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  background: PropTypes.string,
+  styledSection: PropTypes.string,
 };
 
 Section.defaultProps = {
-  background: 'white',
+  styledSection: 'default',
 };
 
 export default Section;

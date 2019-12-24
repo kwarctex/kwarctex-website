@@ -5,7 +5,7 @@ import GlobalStyle from 'assets/styles/GlobalStyle';
 import SEO from 'components/Atoms/SEO/SEO';
 import theme from 'assets/styles/theme';
 import Header from 'components/Organisms/Header/Header';
-// import ContactTemplate from 'templates/ContactTemplate/ContactTemplate';
+import Footer from 'components/Organisms/Footer/Footer';
 
 const MainTemplate = ({ children }) => {
   return (
@@ -16,7 +16,7 @@ const MainTemplate = ({ children }) => {
         <>
           <Header />
           {children}
-          {/* <ContactTemplate /> */}
+          <Footer />
         </>
       </ThemeProvider>
     </>

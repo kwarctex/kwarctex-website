@@ -61,7 +61,7 @@ const InnerContent = styled.div`
     margin: 2rem 0;
 
     ${({ theme }) => theme.mq.desktop} {
-      margin: 4rem;
+      margin: 0 4rem;
     }
   }
 `;
@@ -90,7 +90,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const ResonsForKwarctexTemplate = () => (
-  <Section background="grey">
+  <Section styledSection="styledSection">
     <PageTitle>Dlaczego warto wybrać konglomeraty Kwarctex</PageTitle>
     <SubTitle>
       Nasze produkty są niezwykle trwałe, odporne na agresywne kwasy i

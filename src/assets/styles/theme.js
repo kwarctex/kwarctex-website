@@ -1,11 +1,14 @@
 const theme = {
   color: {
     black: 'hsla(0, 0%, 0%, 1)',
+    midBlack: 'hsla(0, 0%, 16%, 1)',
     lightBlack: 'hsla(0, 0%, 0%, .7)',
     white: 'hsla(360, 100%, 100%, 1)',
     accentColor: '	hsla(186, 100%, 27%, 1)',
+    accentColorDark: '	hsla(186, 64%, 21%, 1)',
     lightGrey: 'hsla(0, 0%, 97%, 1)',
     midGrey: 'hsla(0, 0%, 92%, 1)',
+    darkGrey: 'hsla(0,0%,52%, 1)',
     //   primary: 'hsla(289, 27%, 24%, 1)',
     //   primaryLight: 'hsla(289, 9%, 42%, .5)',
     //   black: 'hsla(0, 0%, 20%, 1)',
