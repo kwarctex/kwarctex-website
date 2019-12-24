@@ -2,8 +2,8 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: `Quartz - strona oficjalna`,
-    description: `Quartz - strona oficjalna`,
+    title: `Kwarctex - strona oficjalna`,
+    description: `Kwarctex - strona oficjalna`,
     author: `@danleks`,
   },
   pathPrefix: '/quartz',

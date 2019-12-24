@@ -12,8 +12,8 @@ const StyledMenuItem = styled.li`
 `;
 
 const StyledMenuItemLink = styled(AniLink)`
-  font-size: ${({ theme }) => theme.fontSize.mobile.m};
-  font-weight: 700;
+  font-size: ${({ theme }) => theme.fontSize.xs};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   text-decoration: none;
   color: ${({ theme }) => theme.color.black};
   transition: color 0.15s ease-in;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 // import Header from 'components/Header/Header';
 // import Button from 'components/Button/Button';
-import BGIMG from 'assets/images/hero.jpg';
+import BGIMG from 'assets/images/backgrounds/hero.jpg';
 import HeroPanel from 'components/Molecules/HeroPanel/HeroPanel';
 // import BackgroundImage from 'gatsby-background-image';
 // import { useStaticQuery, graphql } from 'gatsby';

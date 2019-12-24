@@ -8,21 +8,22 @@ import SectionTextTitle from 'components/Atoms/SectionTextTitle/SectionTextTitle
 import SectionText from 'components/Atoms/SectionText/SectionText';
 import Button from 'components/Atoms/Button/Button';
 
-const StyledSubTitle = styled(SubTitle)`
-  margin-top: 2rem;
-`;
-
 const StyledSectionText = styled(SectionText)`
-  margin: 4rem 0;
+  margin: 2rem 0;
+
+  ${({ theme }) => theme.mq.desktop} {
+    margin: 4rem 0;
+  }
 `;
 
 const StyledText = styled.p`
-  margin-top: 8rem;
-  font-size: ${({ theme }) => theme.fontSize.mobile.m};
+  margin-top: 4rem;
+  font-size: ${({ theme }) => theme.fontSize.xs};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 
   ${({ theme }) => theme.mq.desktop} {
-    font-size: ${({ theme }) => theme.fontSize.mobile.l};
+    margin-top: 8rem;
+    font-size: ${({ theme }) => theme.fontSize.s};
     text-align: center;
   }
 `;
@@ -66,11 +67,11 @@ const InnerContent = styled.div`
 
 const AboutTemplate = () => (
   <Section>
-    <PageTitle>O NAS</PageTitle>
-    <StyledSubTitle>
+    <PageTitle>O nas</PageTitle>
+    <SubTitle>
       Oferujemy Państwu nowy produkt na polskim rynku materiałów wykończeniowych
       i elementów mebli - konglomerat kwarcowy firmy Belenco®.
-    </StyledSubTitle>
+    </SubTitle>
     <Content>
       <InnerContent>
         <Video />

@@ -4,14 +4,19 @@ import styled from 'styled-components';
 
 const StyledSectionContent = styled.div`
   width: 100%;
+  max-width: 60rem;
+  margin: auto;
 
   ${({ theme }) => theme.mq.tablet} {
-    width: 71%;
-    margin: auto;
+    width: 80%;
   }
 
   ${({ theme }) => theme.mq.tablet_1} {
     width: 100%;
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
+    max-width: 100%;
   }
 `;
 
