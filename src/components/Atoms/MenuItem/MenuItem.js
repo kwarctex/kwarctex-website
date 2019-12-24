@@ -23,9 +23,9 @@ const StyledMenuItemLink = styled(AniLink)`
   }
 `;
 
-const MenuItem = ({ children, ...props }) => (
+const MenuItem = ({ children, to }) => (
   <StyledMenuItem>
-    <StyledMenuItemLink {...props}>{children}</StyledMenuItemLink>
+    <StyledMenuItemLink to={to}>{children}</StyledMenuItemLink>
   </StyledMenuItem>
 );
 
@@ -34,6 +34,7 @@ MenuItem.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  to: PropTypes.string.isRequired,
 };
 
 export default MenuItem;

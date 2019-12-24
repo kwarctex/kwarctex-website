@@ -64,7 +64,7 @@ const Img = styled.img`
 `;
 
 const ServicesTemplate = () => (
-  <Section>
+  <Section id="uslugi">
     <PageTitle>Usługi Kwarctex</PageTitle>
     <SubTitle>
       Obecnie swiadczymy nasze usługi dla firm kamieniarskich. Zapraszmy do

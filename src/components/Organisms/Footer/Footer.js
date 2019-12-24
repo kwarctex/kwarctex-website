@@ -103,7 +103,7 @@ const StyledCopyright = styled.p`
 `;
 
 const Footer = () => (
-  <StyledFooter>
+  <StyledFooter id="kontakt">
     <StyledSubTitle>
       Masz do nas pytania ? Chętnie na je odpowiemy.
     </StyledSubTitle>

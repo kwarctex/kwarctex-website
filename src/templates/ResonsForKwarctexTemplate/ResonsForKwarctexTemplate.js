@@ -90,7 +90,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const ResonsForKwarctexTemplate = () => (
-  <Section styledSection="styledSection">
+  <Section id="dlaczego-nasze-konglomeraty" styledSection="styledSection">
     <PageTitle>Dlaczego warto wybrać konglomeraty Kwarctex</PageTitle>
     <SubTitle>
       Nasze produkty są niezwykle trwałe, odporne na agresywne kwasy i

@@ -5,19 +5,19 @@ const menuItemsArray = [
   },
   {
     title: 'Usługi',
-    linkTo: '/#uslugi',
+    linkTo: '/#uslugi/',
   },
   {
     title: 'O nas',
-    linkTo: '/#o-nas',
+    linkTo: '/#o-nas/',
   },
   {
     title: 'Produkty',
-    linkTo: '/#dlaczego-nasze-produkty',
+    linkTo: '/#dlaczego-nasze-konglomeraty/',
   },
   {
     title: 'Kontakt',
-    linkTo: '/#kontakt',
+    linkTo: '/#kontakt/',
   },
 ];
 
