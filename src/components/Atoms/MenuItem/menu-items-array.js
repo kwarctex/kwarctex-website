@@ -12,8 +12,8 @@ const menuItemsArray = [
     linkTo: '/#o-nas/',
   },
   {
-    title: 'Produkty',
-    linkTo: '/#dlaczego-nasze-konglomeraty/',
+    title: 'Konglomeraty',
+    linkTo: '/konglomeraty-kwarcowe',
   },
   {
     title: 'Kontakt',
