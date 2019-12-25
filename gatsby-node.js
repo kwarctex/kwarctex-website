@@ -40,7 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(
-        `./src/templates/ProductTemplate/ProductTemplate.js`
+        `./src/templates/ConglomerateTemplate/ConglomerateTemplate.js`
       ),
       context: {
         // Data passed to context is available

@@ -25,7 +25,14 @@ const StyledMenuItemLink = styled(AniLink)`
 
 const MenuItem = ({ children, to }) => (
   <StyledMenuItem>
-    <StyledMenuItemLink to={to}>{children}</StyledMenuItemLink>
+    <StyledMenuItemLink
+      to={to}
+      cover
+      direction="right"
+      bg="hsla(186, 100%, 27%, 1)"
+    >
+      {children}
+    </StyledMenuItemLink>
   </StyledMenuItem>
 );
 

@@ -84,7 +84,12 @@ const ConglomerateListTemplate = ({ data }) => {
           )
           .map(image => (
             <StyledListItem key={image.node.frontmatter.thumbnail.id}>
-              <StyledLink to={image.node.fields.slug}>
+              <StyledLink
+                to={image.node.fields.slug}
+                cover
+                direction="right"
+                bg="hsla(186, 100%, 27%, 1)"
+              >
                 <StyledImg
                   fluid={image.node.frontmatter.thumbnail.childImageSharp.fluid}
                 />

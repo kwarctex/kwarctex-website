@@ -104,6 +104,7 @@ const theme = {
     mobile_1: '@media(min-width: 500px)',
     tablet: '@media(min-width: 768px)',
     tablet_1: '@media(min-width: 900px)',
+    tablet_2: '@media(min-width: 1024px)',
     desktop: '@media(min-width: 1100px)',
     huge: '@media(min-width: 1440px)',
   },
