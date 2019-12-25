@@ -21,8 +21,8 @@ const StyledSectionWrapper = styled.section`
   }
 `;
 
-const SectionWrapper = ({ children, styledSection }) => (
-  <StyledSectionWrapper styledSection={styledSection}>
+const SectionWrapper = ({ children, styledSection, id }) => (
+  <StyledSectionWrapper styledSection={styledSection} id={id}>
     {children}
   </StyledSectionWrapper>
 );
@@ -33,6 +33,7 @@ SectionWrapper.propTypes = {
     PropTypes.node,
   ]).isRequired,
   styledSection: PropTypes.string,
+  id: PropTypes.string.isRequired,
 };
 
 SectionWrapper.defaultProps = {

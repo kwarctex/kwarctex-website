@@ -66,6 +66,7 @@ const StyledLink = styled(AniLink)`
 `;
 
 const ConglomerateListTemplate = ({ data }) => {
+  console.log(data);
   const [inputVal, setInputValue] = useState('');
   const handleInputChange = e => setInputValue(e.target.value.toLowerCase());
   const filterItems = (inputValue, item) => {
@@ -88,7 +89,7 @@ const ConglomerateListTemplate = ({ data }) => {
                 to={image.node.fields.slug}
                 cover
                 direction="right"
-                bg="hsla(186, 100%, 27%, 1)"
+                bg="hsla(0, 0%, 92%, 1)"
               >
                 <StyledImg
                   fluid={image.node.frontmatter.thumbnail.childImageSharp.fluid}

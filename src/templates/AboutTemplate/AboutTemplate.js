@@ -66,7 +66,7 @@ const InnerContent = styled.div`
 `;
 
 const AboutTemplate = () => (
-  <Section>
+  <Section id="o-nas">
     <PageTitle>O nas</PageTitle>
     <SubTitle>
       Oferujemy Państwu nowy produkt na polskim rynku materiałów wykończeniowych

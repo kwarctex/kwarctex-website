@@ -9,6 +9,7 @@ module.exports = {
   pathPrefix: '/quartz',
   plugins: [
     `gatsby-plugin-transition-link`,
+    `gatsby-plugin-smoothscroll`,
     {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {

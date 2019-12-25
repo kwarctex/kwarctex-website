@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 const StyledMenuItem = styled.li`
   position: relative;
   width: 100%;
-  padding: 1rem 0;
   text-align: center;
   cursor: pointer;
 `;
 
-const StyledMenuItemLink = styled(AniLink)`
+const StyledMenuItemAniLink = styled(AniLink)`
   font-size: ${({ theme }) => theme.fontSize.xs};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
   text-decoration: none;
   color: ${({ theme }) => theme.color.black};
   transition: color 0.15s ease-in;
@@ -23,18 +23,36 @@ const StyledMenuItemLink = styled(AniLink)`
   }
 `;
 
-const MenuItem = ({ children, to }) => (
-  <StyledMenuItem>
-    <StyledMenuItemLink
-      to={to}
-      cover
-      direction="right"
-      bg="hsla(186, 100%, 27%, 1)"
-    >
-      {children}
-    </StyledMenuItemLink>
-  </StyledMenuItem>
-);
+const StyledMenuItemLink = styled(Link)`
+  font-size: ${({ theme }) => theme.fontSize.xs};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.black};
+  transition: color 0.15s ease-in;
+
+  &:hover {
+    color: ${({ theme }) => theme.color.accentColor};
+  }
+`;
+
+const MenuItem = ({ children, to }) => {
+  return (
+    <StyledMenuItem>
+      {to.includes('#') ? (
+        <StyledMenuItemLink to={to}>{children}</StyledMenuItemLink>
+      ) : (
+        <StyledMenuItemAniLink
+          to={to}
+          cover
+          direction="right"
+          bg="hsla(0, 0%, 92%, 1)"
+        >
+          {children}
+        </StyledMenuItemAniLink>
+      )}
+    </StyledMenuItem>
+  );
+};
 
 MenuItem.propTypes = {
   children: PropTypes.oneOfType([
