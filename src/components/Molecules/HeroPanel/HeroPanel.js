@@ -16,9 +16,11 @@ const StyledMainTitle = styled(MainTitle)`
 `;
 
 const StyledSubTitle = styled(SubTitle)`
+  width: 100%;
   margin-bottom: 2rem;
 
   ${({ theme }) => theme.mq.tablet} {
+    width: 100%;
     margin-bottom: 3rem;
   }
 `;
@@ -27,7 +29,7 @@ const HeroPanel = () => (
   <Panel>
     <StyledMainTitle>Konglomeraty kwarcowe Kwarctex</StyledMainTitle>
     <StyledSubTitle hero>
-      Oficjalny przedstawiciel Belenco&reg; na całej UE.
+      Oficjalny przedstawiciel firmy Belenco&reg; na całej UE.
     </StyledSubTitle>
     <Button hero>Poznaj ofertę</Button>
   </Panel>

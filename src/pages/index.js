@@ -6,14 +6,12 @@ import ResonsForKwarctexTemplate from 'templates/ResonsForKwarctexTemplate/Reson
 import ServicesTemplate from 'templates/ServicesTemplate/ServicesTemplate/';
 
 const IndexPage = () => (
-  <div>
-    <MainTemplate>
-      <HeroTemplate />
-      <AboutTemplate />
-      <ResonsForKwarctexTemplate />
-      <ServicesTemplate />
-    </MainTemplate>
-  </div>
+  <MainTemplate>
+    <HeroTemplate />
+    <AboutTemplate />
+    <ResonsForKwarctexTemplate />
+    <ServicesTemplate />
+  </MainTemplate>
 );
 
 export default IndexPage;

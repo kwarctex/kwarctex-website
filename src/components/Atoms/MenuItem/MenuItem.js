@@ -7,15 +7,16 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 const StyledMenuItem = styled.li`
   position: relative;
   width: 100%;
-  text-align: center;
+  text-align: ${({ mobile }) => (mobile ? 'left' : 'center')};
   cursor: pointer;
 `;
 
 const StyledMenuItemAniLink = styled(AniLink)`
   font-size: ${({ theme }) => theme.fontSize.xs};
-  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   text-decoration: none;
-  color: ${({ theme }) => theme.color.black};
+  color: ${({ theme, mobile }) =>
+    mobile ? theme.color.white : theme.color.black};
   transition: color 0.15s ease-in;
 
   &:hover {
@@ -25,9 +26,10 @@ const StyledMenuItemAniLink = styled(AniLink)`
 
 const StyledMenuItemLink = styled(Link)`
   font-size: ${({ theme }) => theme.fontSize.xs};
-  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   text-decoration: none;
-  color: ${({ theme }) => theme.color.black};
+  color: ${({ theme, mobile }) =>
+    mobile ? theme.color.white : theme.color.black};
   transition: color 0.15s ease-in;
 
   &:hover {
@@ -35,17 +37,21 @@ const StyledMenuItemLink = styled(Link)`
   }
 `;
 
-const MenuItem = ({ children, to }) => {
+const MenuItem = ({ children, to, mobile, ...props }) => {
   return (
-    <StyledMenuItem>
+    <StyledMenuItem mobile={mobile}>
       {to.includes('#') ? (
-        <StyledMenuItemLink to={to}>{children}</StyledMenuItemLink>
+        <StyledMenuItemLink to={to} mobile={mobile} {...props}>
+          {children}
+        </StyledMenuItemLink>
       ) : (
         <StyledMenuItemAniLink
+          mobile={mobile}
           to={to}
           cover
           direction="right"
           bg="hsla(0, 0%, 92%, 1)"
+          {...props}
         >
           {children}
         </StyledMenuItemAniLink>
@@ -60,6 +66,11 @@ MenuItem.propTypes = {
     PropTypes.node,
   ]).isRequired,
   to: PropTypes.string.isRequired,
+  mobile: PropTypes.bool,
+};
+
+MenuItem.defaultProps = {
+  mobile: false,
 };
 
 export default MenuItem;

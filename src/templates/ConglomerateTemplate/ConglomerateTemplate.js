@@ -156,16 +156,16 @@ const SubmitButton = styled.button`
   display: block;
   width: 14rem;
   padding: 1.5rem;
-  border: 1px solid ${({ theme }) => theme.color.accentColor};
-  color: ${({ theme }) => theme.color.black};
-  background: none;
+  border: none;
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  color: ${({ theme }) => theme.color.white};
   text-decoration: none;
-  transition: border-color 0.3s ease-in, box-shadow 0.3s ease-in;
+  background-color: ${({ theme }) => theme.color.accentColor};
+  transition: background-color 0.3s ease-in;
   cursor: pointer;
 
   &:hover {
-    border: 1px solid
-      ${({ theme, hero }) => (hero ? theme.color.white : theme.color.black)};
+    background-color: ${({ theme }) => theme.color.accentColorDark};
   }
 `;
 
@@ -203,7 +203,7 @@ const ConglomerateTemplate = ({ data }) => {
                 }}
                 onSubmit={values => {
                   axios.post(
-                    'https://m5fssgnqr8.execute-api.eu-west-1.amazonaws.com/default/lambda-microservice',
+                    'https://ppmg033dx7.execute-api.eu-west-1.amazonaws.com/default/send-email-danleks',
                     {
                       email: values.email,
                       tel: values.tel,
@@ -286,7 +286,7 @@ const ConglomerateTemplate = ({ data }) => {
                           onChange={handleChange}
                           onBlur={handleBlur}
                           value={values.comment}
-                         />
+                        />
                       </FormGroup>
                       <FormGroup>
                         <SubmitButton type="submit">

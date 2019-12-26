@@ -8,10 +8,10 @@ const StyledNavigation = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  width: 90%;
+  width: 80%;
   height: 100vh;
   z-index: ${({ theme }) => theme.zIndex.zIndex90};
-  background-color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.color.midBlack};
   transform: translateX(${({ menuIsOpen }) => (menuIsOpen ? '0' : '-100%')});
   transition: transform 0.3s ease-in;
 
@@ -24,8 +24,8 @@ const StyledMenuItemsWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 100%;
-  padding: 5rem 0;
+  height: 45%;
+  padding: 3rem;
   list-style: none;
 `;
 
@@ -34,7 +34,12 @@ const MobileNavigation = ({ menuIsOpen, menuHandler }) => {
     <StyledNavigation menuIsOpen={menuIsOpen}>
       <StyledMenuItemsWrapper>
         {menuItemsArray.map(item => (
-          <MenuItem key={item.title} to={item.linkTo} onClick={menuHandler}>
+          <MenuItem
+            mobile
+            key={item.title}
+            to={item.linkTo}
+            onClick={menuHandler}
+          >
             {item.title}
           </MenuItem>
         ))}

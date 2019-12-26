@@ -15,6 +15,7 @@ const StyledHeroWrapper = styled.section`
   align-items: center;
   width: 100%;
   height: 70vh;
+  margin-top: 7rem;
   background-image: url(${BGIMG});
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,19 +31,6 @@ const StyledHeroWrapper = styled.section`
     background-position: 0 45%;
   }
 `;
-
-// const StyledHeading = styled.h1`
-//   margin-top: 6rem;
-//   font-size: ${({ theme }) => theme.fontSize.mobile.xxl};
-//   font-weight: ${({ theme }) => theme.fontWeight.light};
-//   color: ${({ theme }) => theme.color.black};
-//   ${({ theme }) => theme.mq.tablet} {
-//     font-size: ${({ theme }) => theme.fontSize.tablet.xxxl};
-//   }
-//   ${({ theme }) => theme.mq.desktop} {
-//     font-size: ${({ theme }) => theme.fontSize.desktop.xxl};
-//   }
-// `;
 
 const HeroTemplate = () => {
   // const data = useStaticQuery(graphql`

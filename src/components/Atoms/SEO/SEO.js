@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 const SEO = () => (
   <Helmet>
     <html lang="pl" />
-    <title>Kwarctex</title>
+    <title>Kwarctex - konglomeraty kwarcowe</title>
   </Helmet>
 );
 

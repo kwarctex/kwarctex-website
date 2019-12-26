@@ -9,7 +9,7 @@ const MainTitle = styled.h1`
   }
 
   ${({ theme }) => theme.mq.desktop} {
-    font-size: ${({ theme }) => theme.fontSize.xxxl};
+    font-size: ${({ theme }) => theme.fontSize.xxl};
   }
 `;
 

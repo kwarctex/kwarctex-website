@@ -6,7 +6,7 @@ module.exports = {
     description: `Kwarctex - strona oficjalna`,
     author: `@danleks`,
   },
-  pathPrefix: '/quartz',
+  pathPrefix: '/kwarctex',
   plugins: [
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-smoothscroll`,
@@ -92,7 +92,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        // icon: `src/assets/images/logo.svg`, // This path is relative to the root of the site.
+        icon: `src/assets/images/favicon.svg`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

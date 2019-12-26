@@ -1,11 +1,7 @@
 const menuItemsArray = [
   {
-    title: 'Strona gł.',
-    linkTo: '/',
-  },
-  {
     title: 'O nas',
-    linkTo: '#o-nas',
+    linkTo: '/#o-nas',
   },
   {
     title: 'Konglomeraty',
@@ -13,11 +9,11 @@ const menuItemsArray = [
   },
   {
     title: 'Usługi',
-    linkTo: '#uslugi',
+    linkTo: '/#uslugi',
   },
   {
     title: 'Kontakt',
-    linkTo: '#kontakt',
+    linkTo: '/#kontakt',
   },
 ];
 
