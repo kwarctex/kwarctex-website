@@ -226,6 +226,7 @@ const ConglomerateTemplate = ({ data }) => {
     amount: Yup.number()
       .min(1, '*Podaj ilość. Min 1')
       .required('*To pole jest wymagane'),
+    permission: Yup.boolean().required('*To pole jest wymagane'),
   });
 
   return (
@@ -346,7 +347,7 @@ const ConglomerateTemplate = ({ data }) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.amount}
-                            error={!!(touched.tel && errors.tel)}
+                            error={!!(touched.amount && errors.amount)}
                           />
                           {touched.amount && errors.amount ? (
                             <StyledErrorMessage>
@@ -376,6 +377,7 @@ const ConglomerateTemplate = ({ data }) => {
                           <FormInput
                             type="checkbox"
                             id="permission"
+                            error={!!(touched.permission && errors.permission)}
                             onChange={() =>
                               setFieldValue('permission', !values.permission)
                             }
@@ -393,6 +395,11 @@ const ConglomerateTemplate = ({ data }) => {
                               Kwarctex Sp. z o.o.
                             </StyledSectionText>
                           </FormLabel>
+                          {touched.permission && errors.permission ? (
+                            <StyledErrorMessage>
+                              {errors.permission}
+                            </StyledErrorMessage>
+                          ) : null}
                         </FormGroup>
                       </FormWrapper>
                     </form>
