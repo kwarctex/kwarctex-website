@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MainTemplate from 'templates/MainTemplate/MainTemplate/';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
@@ -6,10 +6,13 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 import BackgroundImage from 'gatsby-background-image';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 import axios from 'axios';
 import PageTitle from 'components/Atoms/PageTitle/PageTitle';
 import SectionText from 'components/Atoms/SectionText/SectionText';
 import SectionTextTitle from 'components/Atoms/SectionTextTitle/SectionTextTitle';
+import Icon from 'components/Atoms/Icon/Icon';
+import SuccessIcon from 'assets/images/icons/success.svg';
 
 const Section = styled.section`
   display: block;
@@ -36,6 +39,7 @@ const Thumbnail = styled(Img)`
 `;
 
 const Content = styled.div`
+  position: relative;
   max-width: 100rem;
   padding: 2rem;
   margin: 4rem auto;
@@ -83,6 +87,14 @@ const StyledSectionText = styled(SectionText)`
   }
 `;
 
+const StyledSectionTextSuccess = styled(SectionText)`
+  text-align: center;
+`;
+
+const StyledSectionTextTitleSuccess = styled(SectionTextTitle)`
+  margin: 1rem 0 3rem;
+`;
+
 const InnerContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -94,6 +106,10 @@ const InnerContentWrapper = styled.div`
 `;
 
 const InnerContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-top: 4rem;
 
   ${({ theme }) => theme.mq.tablet_2} {
@@ -129,14 +145,23 @@ const FormLabel = styled.label`
 
 const FormInput = styled.input`
   padding: 1.5rem;
-  border: 1px solid ${({ theme }) => theme.color.midGrey};
+  border: 1px solid
+    ${({ theme, error }) => (error ? 'red' : theme.color.midGrey)};
   border-radius: 4px;
   transition: border-color 0.3s ease-in;
 
   &:focus {
     outline: none;
-    border: 1px solid ${({ theme }) => theme.color.accentColor};
+    border: 1px solid
+      ${({ theme, error }) => (error ? 'red' : theme.color.accentColor)};
   }
+`;
+
+const StyledErrorMessage = styled.p`
+  font-size: ${({ theme }) => theme.fontSize.xxs};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  line-height: 2;
+  color: ${({ theme }) => theme.color.error};
 `;
 
 const FormTextArea = styled.textarea`
@@ -167,6 +192,15 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.color.accentColorDark};
   }
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.color.midGrey};
+    cursor: unset;
+  }
+`;
+
+const StyledIcon = styled(Icon)`
+  width: 10rem;
 `;
 
 const ConglomerateTemplate = ({ data }) => {
@@ -175,6 +209,24 @@ const ConglomerateTemplate = ({ data }) => {
     data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid;
   const thumbnail =
     data.markdownRemark.frontmatter.thumbnail.childImageSharp.fluid;
+  const [success, setSuccessMessage] = useState(false);
+
+  // Validation
+  // RegEx for phone number validation
+  const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
+
+  // Schema for yup
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email('*Podaj poprawny adres e-mail')
+      // .max(100, "*Email must be less than 100 characters")
+      .required('*To pole jest wymagane'),
+    tel: Yup.string().matches(phoneRegExp, '*Podaj poprawny numer telefonu'),
+    // .required("*To pole jest wymagane"),
+    amount: Yup.number()
+      .min(1, '*Podaj ilość. Min 1')
+      .required('*To pole jest wymagane'),
+  });
 
   return (
     <MainTemplate>
@@ -189,137 +241,175 @@ const ConglomerateTemplate = ({ data }) => {
             <InnerContent>
               <Thumbnail fluid={thumbnail} />
             </InnerContent>
-            <InnerContent>
-              <SectionTextTitle>Otrzymaj wycenę</SectionTextTitle>
-              <Formik
-                initialValues={{
-                  email: '',
-                  tel: '',
-                  index,
-                  amount: '',
-                  comment:
-                    'Dzień dobry, proszę o przesłanie wyceny wybranego konglomeratu.',
-                  permission: false,
-                }}
-                onSubmit={values => {
-                  axios.post(
-                    'https://ppmg033dx7.execute-api.eu-west-1.amazonaws.com/default/send-email-danleks',
-                    {
-                      email: values.email,
-                      tel: values.tel,
-                      index: values.index,
-                      amount: values.amount,
-                      comment: values.comment,
-                      permission: values.permission,
-                    }
-                  );
-                }}
-              >
-                {({
-                  values,
-                  handleChange,
-                  handleBlur,
-                  handleSubmit,
-                  setFieldValue,
-                  /* and other goodies */
-                }) => (
-                  <form onSubmit={handleSubmit}>
-                    <FormWrapper>
-                      <FormGroup>
-                        <FormLabel htmlFor="email">
-                          E-mail:<Asterics>*</Asterics>
-                        </FormLabel>
-                        <FormInput
-                          type="email"
-                          name="email"
-                          id="email"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value={values.email}
-                          required
-                        />
-                      </FormGroup>
-                      <FormGroup>
-                        <FormLabel htmlFor="tel">Telefon:</FormLabel>
-                        <FormInput
-                          type="tel"
-                          name="tel"
-                          id="tel"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value={values.tel}
-                        />
-                      </FormGroup>
-                      <FormGroup>
-                        <FormLabel htmlFor="index">
-                          Numer konglomeratu:
-                        </FormLabel>
-                        <FormInput
-                          type="text"
-                          name="index"
-                          id="index"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value={values.index}
-                          disabled
-                        />
-                      </FormGroup>
-                      <FormGroup>
-                        <FormLabel htmlFor="amount" required>
-                          Ilość:<Asterics>*</Asterics>
-                        </FormLabel>
-                        <FormInput
-                          type="number"
-                          name="amount"
-                          id="amount"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value={values.amount}
-                          min="1"
-                        />
-                      </FormGroup>
-                      <FormGroup>
-                        <FormLabel htmlFor="comment">Komentarz:</FormLabel>
-                        <FormTextArea
-                          id="comment"
-                          rows="6"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value={values.comment}
-                        />
-                      </FormGroup>
-                      <FormGroup>
-                        <SubmitButton type="submit">
-                          Wyślij zapytanie
-                        </SubmitButton>
-                      </FormGroup>
-                      <FormGroup permission>
-                        <FormInput
-                          type="checkbox"
-                          id="permission"
-                          onChange={() =>
-                            setFieldValue('permission', !values.permission)
-                          }
-                          onBlur={handleBlur}
-                          checked={values.permission}
-                          required
-                        />
-                        <FormLabel htmlFor="permission">
-                          <StyledSectionText permission>
-                            <Asterics>*</Asterics> Wyrażam zgodę na
-                            przetwarzanie przez firmę Kwarctex Sp. z o.o. moich
-                            danych osobowych w postaci adresu e-mail, numeru
-                            telefonu w celu przesyłania mi wyceny dotyczącej
-                            produktów i usług oferowanych przez Kwarctex Sp. z
-                            o.o.
-                          </StyledSectionText>
-                        </FormLabel>
-                      </FormGroup>
-                    </FormWrapper>
-                  </form>
-                )}
-              </Formik>
-            </InnerContent>
+            {!success ? (
+              <InnerContent>
+                <SectionTextTitle>Otrzymaj wycenę</SectionTextTitle>
+                <Formik
+                  initialValues={{
+                    email: '',
+                    tel: '',
+                    index,
+                    amount: '',
+                    comment:
+                      'Dzień dobry, proszę o przesłanie wyceny wybranego konglomeratu.',
+                    permission: false,
+                  }}
+                  validationSchema={validationSchema}
+                  onSubmit={(values, { resetForm }) => {
+                    axios.post(
+                      'https://i6k6tuzwq2.execute-api.eu-west-1.amazonaws.com/production/contact-us',
+                      {
+                        email: values.email,
+                        tel: values.tel,
+                        index: values.index,
+                        amount: values.amount,
+                        comment: values.comment,
+                        permission: values.permission
+                          ? 'Wyrażam zgodę na  przetwarzanie przez firmę Kwarctex Sp. z o.o. moich danych osobowych w postaci adresu e-mail, numeru telefonu w celu przesyłania mi wyceny dotyczącej produktów i usług oferowanych przez Kwarctex Sp. z o.o.'
+                          : 'Brak zgody',
+                      }
+                    );
+                    resetForm();
+                    setSuccessMessage(true);
+                  }}
+                >
+                  {({
+                    values,
+                    errors,
+                    touched,
+                    handleChange,
+                    handleBlur,
+                    handleSubmit,
+                    setFieldValue,
+                    /* and other goodies */
+                  }) => (
+                    <form onSubmit={handleSubmit}>
+                      <FormWrapper>
+                        <FormGroup>
+                          <FormLabel htmlFor="email">
+                            E-mail:<Asterics>*</Asterics>
+                          </FormLabel>
+                          <FormInput
+                            type="email"
+                            name="email"
+                            id="email"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.email}
+                            error={!!(touched.email && errors.email)}
+                          />
+                          {touched.email && errors.email ? (
+                            <StyledErrorMessage>
+                              {errors.email}
+                            </StyledErrorMessage>
+                          ) : null}
+                        </FormGroup>
+                        <FormGroup>
+                          <FormLabel htmlFor="tel">Telefon:</FormLabel>
+                          <FormInput
+                            type="tel"
+                            name="tel"
+                            id="tel"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.tel}
+                            error={!!(touched.tel && errors.tel)}
+                          />
+                          {touched.tel && errors.tel ? (
+                            <StyledErrorMessage>
+                              {errors.tel}
+                            </StyledErrorMessage>
+                          ) : null}
+                        </FormGroup>
+                        <FormGroup>
+                          <FormLabel htmlFor="index">
+                            Numer konglomeratu:
+                          </FormLabel>
+                          <FormInput
+                            type="text"
+                            name="index"
+                            id="index"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.index}
+                            disabled
+                          />
+                        </FormGroup>
+                        <FormGroup>
+                          <FormLabel htmlFor="amount" required>
+                            Ilość:<Asterics>*</Asterics>
+                          </FormLabel>
+                          <FormInput
+                            type="number"
+                            name="amount"
+                            id="amount"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.amount}
+                            error={!!(touched.tel && errors.tel)}
+                          />
+                          {touched.amount && errors.amount ? (
+                            <StyledErrorMessage>
+                              {errors.amount}
+                            </StyledErrorMessage>
+                          ) : null}
+                        </FormGroup>
+                        <FormGroup>
+                          <FormLabel htmlFor="comment">Komentarz:</FormLabel>
+                          <FormTextArea
+                            id="comment"
+                            rows="6"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.comment}
+                          />
+                        </FormGroup>
+                        <FormGroup>
+                          <SubmitButton
+                            type="submit"
+                            disabled={!values.permission}
+                          >
+                            Wyślij zapytanie
+                          </SubmitButton>
+                        </FormGroup>
+                        <FormGroup permission>
+                          <FormInput
+                            type="checkbox"
+                            id="permission"
+                            onChange={() =>
+                              setFieldValue('permission', !values.permission)
+                            }
+                            onBlur={handleBlur}
+                            checked={values.permission}
+                            required
+                          />
+                          <FormLabel htmlFor="permission">
+                            <StyledSectionText permission>
+                              <Asterics>*</Asterics> Wyrażam zgodę na
+                              przetwarzanie przez firmę Kwarctex Sp. z o.o.
+                              moich danych osobowych w postaci adresu e-mail,
+                              numeru telefonu w celu przesyłania mi wyceny
+                              dotyczącej produktów i usług oferowanych przez
+                              Kwarctex Sp. z o.o.
+                            </StyledSectionText>
+                          </FormLabel>
+                        </FormGroup>
+                      </FormWrapper>
+                    </form>
+                  )}
+                </Formik>
+              </InnerContent>
+            ) : (
+              <InnerContent>
+                <StyledIcon src={SuccessIcon} />
+                <StyledSectionTextTitleSuccess>
+                  Wiadomość została wysłana!
+                </StyledSectionTextTitleSuccess>
+                <StyledSectionTextSuccess>
+                  Skontaktujemy się z Tobą w celu przedstawienia szczegółów.
+                </StyledSectionTextSuccess>
+              </InnerContent>
+            )}
           </InnerContentWrapper>
         </Content>
       </Section>

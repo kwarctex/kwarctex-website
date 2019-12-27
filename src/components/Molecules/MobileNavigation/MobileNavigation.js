@@ -27,6 +27,10 @@ const StyledMenuItemsWrapper = styled.ul`
   height: 45%;
   padding: 3rem;
   list-style: none;
+
+  ${({ theme }) => theme.mq.tablet} {
+    height: 25%;
+  }
 `;
 
 const MobileNavigation = ({ menuIsOpen, menuHandler }) => {

@@ -9,8 +9,8 @@ const theme = {
     lightGrey: 'hsla(0, 0%, 97%, 1)',
     midGrey: 'hsla(0, 0%, 92%, 1)',
     darkGrey: 'hsla(0,0%,52%, 1)',
-    navAccentColor: 'hsla(14, 82%, 46%, .9)',
-    navAccentColorDark: 'hsla(14, 82%, 46%, 1)',
+    error: 'hsla(14, 82%, 46%, 1)',
+    // navAccentColorDark: 'hsla(14, 82%, 46%, 1)',
 
     //   primary: 'hsla(289, 27%, 24%, 1)',
     //   primaryLight: 'hsla(289, 9%, 42%, .5)',
