@@ -19,14 +19,14 @@ const reasons = [
     alt: 'image of tea and sweets on the pink background',
     title: 'Naturalny kwarc, niezwykle trwały minerał',
     description:
-      'A w połączeniu z doskonałym designem i technologią tworzy powierzchnie kwarcowe Belenco, dzięki temu powstają konglomeraty o wysokiej odporności na ścieranie, zarysowania i uderzenia. ',
+      'W połączeniu z doskonałym designem i technologią tworzy powierzchnie kwarcowe Belenco, dzięki temu powstają konglomeraty o wysokiej odporności na ścieranie, zarysowania i uderzenia. ',
   },
   {
     img: imgReason2,
     alt: 'image of a glass of milk and berries on the grey background',
-    title: 'Konglomeraty Kwarctex są odporne na chemikalia',
+    title: 'Konglomeraty Belenco są odporne na chemikalia',
     description:
-      'Nasze Powierzchnie nie są wrażliwe na agresywne kwasy i detergenty. Chemia gospodarcza nie stanowi już problemu dla konglomeratów Kwarctex. Nie wymagają specjalnej konserwacji.',
+      'Nasze Powierzchnie nie są wrażliwe na agresywne kwasy i detergenty. Chemia gospodarcza nie stanowi już problemu dla konglomeratów Belenco. Nie wymagają specjalnej konserwacji.',
   },
   {
     img: imgReason3,
