@@ -12,11 +12,11 @@ const StyledVideo = styled.iframe`
 
 const Video = () => (
   <StyledVideo
-    src="https://www.youtube.com/embed/dAg5cxD8vF4"
+    src="https://www.youtube.com/embed/dAg5cxD8vF4?rel=0&mute=1"
     frameborder="0"
     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen
-   />
+  />
 );
 
 export default Video;
