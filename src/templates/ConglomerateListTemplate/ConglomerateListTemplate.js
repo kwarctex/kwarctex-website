@@ -66,7 +66,6 @@ const StyledLink = styled(AniLink)`
 `;
 
 const ConglomerateListTemplate = ({ data }) => {
-  console.log(data);
   const [inputVal, setInputValue] = useState('');
   const handleInputChange = e => setInputValue(e.target.value.toLowerCase());
   const filterItems = (inputValue, item) => {

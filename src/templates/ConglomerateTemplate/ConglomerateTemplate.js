@@ -241,7 +241,7 @@ const ConglomerateTemplate = ({ data }) => {
           <SectionText>{description}</SectionText>
           <InnerContentWrapper>
             <InnerContent>
-              <Thumbnail fluid={thumbnail} />
+              <Thumbnail fluid={thumbnail} alt={title} />
             </InnerContent>
             {!success ? (
               <InnerContent>
