@@ -31,7 +31,7 @@ const FeaturedImgWrapper = styled(BackgroundImage)`
 const Thumbnail = styled(Img)`
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
 
   ${({ theme }) => theme.mq.tablet_2} {
     height: 70rem;
@@ -110,6 +110,7 @@ const InnerContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
   margin-top: 4rem;
 
   ${({ theme }) => theme.mq.tablet_2} {
