@@ -5,7 +5,7 @@ import menuItemsArray from 'components/Atoms/MenuItem/menu-items-array';
 
 const StyledNavigation = styled.nav`
   display: none;
-  width: 50rem;
+  width: 45rem;
   height: 100%;
   background-color: ${({ theme }) => theme.color.white};
 
