@@ -32,7 +32,6 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 110rem;
   margin-top: 2rem;
 
   ${({ theme }) => theme.mq.tablet} {
@@ -40,6 +39,7 @@ const Content = styled.div`
   }
 
   ${({ theme }) => theme.mq.desktop} {
+    width: 110rem;
     flex-direction: row;
     margin: 4rem auto 0;
   }
