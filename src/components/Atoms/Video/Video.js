@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StyledVideo = styled.iframe`
   width: 100%;
+  height: 25rem;
   border: none;
 
   ${({ theme }) => theme.mq.mobile_1} {
