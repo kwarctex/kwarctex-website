@@ -229,7 +229,7 @@ const ConglomerateTemplate = ({ data }) => {
     tel: Yup.string().matches(phoneRegExp, '*Podaj poprawny numer telefonu'),
     // .required("*To pole jest wymagane"),
     amount: Yup.number()
-      .min(1, '*Podaj ilość. Min 1')
+      .min(1, '*Podaj ilość. Min. 1')
       .required('*To pole jest wymagane'),
     permission: Yup.boolean().required('*To pole jest wymagane'),
   });
@@ -256,8 +256,7 @@ const ConglomerateTemplate = ({ data }) => {
                     tel: '',
                     index,
                     amount: '',
-                    comment:
-                      'Dzień dobry, proszę o przesłanie wyceny wybranego konglomeratu.',
+                    comment: `Dzień dobry, proszę o przesłanie wyceny konglomeratu ${title}.`,
                     permission: false,
                   }}
                   validationSchema={validationSchema}
