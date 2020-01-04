@@ -17,7 +17,8 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         height: 100%;
-        font-family: 'Lato', sans-serif;
+        /* font-family: 'Lato', sans-serif; */
+        font-family: Arial, sans-serif;
         font-size: 1.6rem;
         overflow-x: hidden;
     }

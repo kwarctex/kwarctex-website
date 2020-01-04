@@ -122,7 +122,7 @@ const Footer = () => (
       </StyledListWrapper>
     </Content>
     <StyledCopyright>
-      © Copyright 2019 Kwarctex Sp. z o.o. All Rights Reserved.
+      © Copyright 2020 Kwarctex Sp. z o.o. All Rights Reserved.
     </StyledCopyright>
   </StyledFooter>
 );

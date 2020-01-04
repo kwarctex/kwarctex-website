@@ -32,8 +32,7 @@ const reasons = [
     img: imgReason3,
     alt: 'image of grass on the grey background',
     title: 'Dbamy o środowisko',
-    description:
-      'Powierzchnie Belenco nie są wrażliwe na agresywne kwasy i detergenty. Chemia gospodarcza nie stanowi już problemu dla pkonglomeratów Belenco. Nie wymagają specjalnej konserwacji.',
+    description: ' ',
   },
 ];
 
