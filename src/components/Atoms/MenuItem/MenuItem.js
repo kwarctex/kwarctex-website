@@ -6,6 +6,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 const StyledMenuItem = styled.li`
   position: relative;
+  margin-bottom: ${({ mobile }) => (mobile ? '1.5rem' : '0')};
   text-align: left;
   cursor: pointer;
 `;
@@ -38,7 +39,7 @@ const StyledMenuItemLink = styled(Link)`
 
 const MenuItem = ({ children, to, mobile, ...props }) => {
   return (
-    <StyledMenuItem>
+    <StyledMenuItem mobile={mobile}>
       {to.includes('#') ? (
         <StyledMenuItemLink to={to} mobile={mobile} {...props}>
           {children}

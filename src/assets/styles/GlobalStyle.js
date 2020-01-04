@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     html {
         height: 100%;
         font-size: 62.5%;
-        /* scroll-behavior: smooth; */
+        scroll-behavior: smooth;
     }
     body {
         height: 100%;

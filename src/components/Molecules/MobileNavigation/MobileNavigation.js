@@ -23,8 +23,7 @@ const StyledNavigation = styled.nav`
 const StyledMenuItemsWrapper = styled.ul`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 45%;
+  height: 100%;
   padding: 3rem;
   list-style: none;
 
