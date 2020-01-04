@@ -8,7 +8,7 @@ const StyledButton = styled(AniLink)`
   &:link,
   &:visited {
     display: block;
-    width: ${({ hero }) => (hero ? '13rem' : '16rem')};
+    width: ${({ hero }) => (hero ? '14rem' : '16rem')};
     padding: ${({ hero }) => (hero ? '1.5rem' : '2rem')};
     border: 1px solid ${({ theme }) => theme.color.accentColor};
     text-align: center;

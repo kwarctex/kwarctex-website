@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import 'typeface-lato';
+// import 'typeface-lato';
 
 const GlobalStyle = createGlobalStyle`
     *, *::before, *::after {
@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         height: 100%;
         /* font-family: 'Lato', sans-serif; */
-        font-family: Arial, sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 1.6rem;
         overflow-x: hidden;
     }
