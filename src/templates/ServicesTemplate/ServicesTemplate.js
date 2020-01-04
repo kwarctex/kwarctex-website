@@ -63,6 +63,10 @@ const Img = styled.img`
   height: auto;
 `;
 
+const StyledSectionTextTitle = styled(SectionTextTitle)`
+  margin-bottom: 1rem;
+`;
+
 const ServicesTemplate = () => (
   <Section id="uslugi">
     <PageTitle>Usługi Kwarctex</PageTitle>
@@ -78,7 +82,7 @@ const ServicesTemplate = () => (
         {Services.map(service => {
           return (
             <Service key={service.title}>
-              <SectionTextTitle>{service.title}</SectionTextTitle>
+              <StyledSectionTextTitle>{service.title}</StyledSectionTextTitle>
               <SectionText>{service.description}</SectionText>
             </Service>
           );

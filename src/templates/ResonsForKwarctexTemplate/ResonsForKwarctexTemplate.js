@@ -26,7 +26,7 @@ const reasons = [
     alt: 'image of a glass of milk and berries on the grey background',
     title: 'Konglomeraty Belenco są odporne na chemikalia',
     description:
-      'Nasze Powierzchnie nie są wrażliwe na agresywne kwasy i detergenty. Chemia gospodarcza nie stanowi już problemu dla konglomeratów Belenco. Nie wymagają specjalnej konserwacji.',
+      'Nasze powierzchnie nie są wrażliwe na agresywne kwasy i detergenty. Chemia gospodarcza nie stanowi już problemu dla konglomeratów Belenco. Nie wymagają specjalnej konserwacji.',
   },
   {
     img: imgReason3,

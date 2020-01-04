@@ -6,7 +6,7 @@ import SubTitle from 'components/Atoms/SubTitle/SubTitle';
 import Button from 'components/Atoms/Button/Button';
 
 const StyledMainTitle = styled(MainTitle)`
-  border-bottom: 1px solid ${({ theme }) => theme.color.white};
+  border-bottom: 1px solid ${({ theme }) => theme.color.accentColor};
   padding-bottom: 2rem;
   margin-bottom: 2rem;
 

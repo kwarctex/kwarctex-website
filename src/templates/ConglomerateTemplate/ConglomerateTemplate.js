@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-import BackgroundImage from 'gatsby-background-image';
+// import BackgroundImage from 'gatsby-background-image';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -18,13 +18,13 @@ const Section = styled.section`
   display: block;
 `;
 
-const FeaturedImgWrapper = styled(BackgroundImage)`
+const FeaturedImgWrapper = styled(Img)`
   width: 100%;
-  height: 70vh;
-  background-size: cover;
+  height: 18rem;
+  margin-top: 7rem;
 
   ${({ theme }) => theme.mq.tablet} {
-    height: 60vh;
+    height: 60rem;
   }
 `;
 
@@ -42,7 +42,7 @@ const Content = styled.div`
   position: relative;
   max-width: 100rem;
   padding: 2rem;
-  margin: 4rem auto;
+  margin: 1rem auto;
 
   ${({ theme }) => theme.mq.mobile_1} {
     width: 80%;
@@ -103,13 +103,17 @@ const InnerContentWrapper = styled.div`
   ${({ theme }) => theme.mq.tablet_2} {
     flex-direction: row;
   }
+
+  ${({ theme }) => theme.mq.desktop} {
+    height: 82rem;
+  }
 `;
 
 const InnerContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100%;
   margin-top: 4rem;
 
@@ -233,7 +237,7 @@ const ConglomerateTemplate = ({ data }) => {
   return (
     <MainTemplate>
       <Section>
-        <FeaturedImgWrapper fluid={featuredImg} />
+        <FeaturedImgWrapper fluid={featuredImg} alt={title} />
         <Content>
           <StyledPageTitle>{title}</StyledPageTitle>
           <IndexWrapper>{index}</IndexWrapper>

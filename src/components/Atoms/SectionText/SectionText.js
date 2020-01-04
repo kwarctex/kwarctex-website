@@ -4,6 +4,7 @@ const SectionText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xxs};
   font-weight: ${({ theme }) => theme.fontWeight.light};
   line-height: 1.5;
+  color: ${({ theme }) => theme.color.lighterBlack};
 
   ${({ theme }) => theme.mq.tablet} {
     font-size: ${({ theme }) => theme.fontSize.xs};
